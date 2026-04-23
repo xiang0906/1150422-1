@@ -3,90 +3,318 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的介紹範例頁面</title>
+  <title>楊柏翔</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
-      background: #f4f4f9;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #4a90e2;
-      color: white;
-      padding: 2rem 1rem;
+      background: #2c3e50;
+      color: #e0e0e0;
       text-align: center;
     }
+
+    /* HEADER */
+    header {
+      padding: 3rem 1rem 2rem;
+      border-bottom: 1px solid #3d5166;
+      background: #263545;
+    }
+    .avatar {
+      font-size: 4rem;
+      margin-bottom: 0.75rem;
+    }
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 4px;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+    header .role {
+      color: #90a4b7;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+    header .bio {
+      max-width: 480px;
+      margin: 0 auto 1.25rem;
+      color: #a0b4c5;
+      font-size: 0.95rem;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .tag {
+      background: #3d5166;
+      color: #c5d8e8;
+      border: 1px solid #4e6880;
+      border-radius: 4px;
+      padding: 3px 12px;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+    }
+
+    /* MAIN */
     main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1rem 3rem;
     }
+
     section {
-      background: white;
+      background: #2e4057;
       border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      margin-bottom: 1.5rem;
-      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+      margin: 1.5rem 0;
+      padding: 1.75rem;
+      border-left: 4px solid #7eb8d4;
+      text-align: left;
     }
-    h1, h2 {
-      margin-top: 0;
+    h2 {
+      color: #7eb8d4;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #3d5166;
     }
+
+    /* 基本資料 */
+    .info-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .info-label {
+      color: #7090a8;
+      min-width: 60px;
+      font-size: 0.9rem;
+    }
+    .info-value {
+      color: #ddd;
+      font-size: 0.9rem;
+    }
+
+    /* 進度條 */
+    .skill-item { margin-bottom: 1rem; }
+    .skill-item:last-child { margin-bottom: 0; }
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      color: #b0c8d8;
+      margin-bottom: 5px;
+    }
+    .bar-bg {
+      background: #3d5166;
+      border-radius: 4px;
+      height: 6px;
+      width: 100%;
+    }
+    .bar-fill {
+      background: #7eb8d4;
+      border-radius: 4px;
+      height: 6px;
+      width: 0;
+      transition: width 1s ease;
+    }
+
+    /* 興趣格 */
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .interest-item {
+      background: #263545;
+      border: 1px solid #3d5166;
+      border-radius: 8px;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #b0c8d8;
+    }
+    .interest-item .icon { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+
+    /* 時間軸 */
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 6px;
+      width: 1px;
+      background: #3d5166;
+    }
+    .tl-item { position: relative; margin-bottom: 1.25rem; }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -1.55rem;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      background: #7eb8d4;
+      border-radius: 50%;
+    }
+    .tl-year { font-size: 0.78rem; color: #7090a8; letter-spacing: 1px; margin-bottom: 2px; }
+    .tl-title { color: #fff; font-size: 0.95rem; font-weight: bold; margin-bottom: 2px; }
+    .tl-desc { color: #90a4b7; font-size: 0.88rem; }
+
+    /* 聯絡 */
+    .contact-list { list-style: none; }
+    .contact-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #3d5166;
+      font-size: 0.9rem;
+      color: #b0c8d8;
+    }
+    .contact-list li:last-child { border-bottom: none; }
+
+    /* 按鈕 */
     button {
-      background: #4a90e2;
+      background: #7eb8d4;
       border: none;
       border-radius: 6px;
-      color: white;
+      color: #1a2a38;
       cursor: pointer;
-      font-size: 1rem;
-      padding: 0.75rem 1.25rem;
-    }
-    button:hover {
-      background: #3a74c8;
-    }
-    .small-note {
-      color: #666;
       font-size: 0.95rem;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      letter-spacing: 1px;
+      transition: background 0.2s;
+    }
+    button:hover { background: #9fcce0; }
+    .small-note { color: #7090a8; font-size: 0.9rem; margin-top: 0.75rem; }
+
+    footer {
+      color: #4e6880;
+      font-size: 0.8rem;
+      padding: 1.5rem;
+      border-top: 1px solid #3d5166;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>歡迎來到我的介紹範例頁面</h1>
-    <p>這是一個簡單的 HTML 範例，展示結構、樣式與互動。</p>
+    <div class="avatar">👤</div>
+    <h1>楊柏翔</h1>
+    <p class="role">餐廳服務生 &nbsp;·&nbsp; 儲備幹部</p>
+    <p class="bio">工作資歷 3 年，目前持續學習 Java 程式開發。<br>努力在餐飲業與程式領域同步成長。</p>
+    <div class="tags">
+      <span class="tag">餐飲業</span>
+      <span class="tag">儲備幹部</span>
+      <span class="tag">Java 學習中</span>
+      <span class="tag">積極進取</span>
+    </div>
   </header>
 
   <main>
+
     <section>
-      <h2>關於我123123</h2>
-      <p>這個網頁介紹了一個虛擬的專案範例。你可以在這裡展示自己的工作、興趣和技能。以下內容示範了如何用 HTML 撰寫段落、標題和按鈕。</p>
+      <h2>基本資料</h2>
+      <div class="info-row">
+        <span class="info-label">姓名</span>
+        <span class="info-value">楊柏翔</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">生日</span>
+        <span class="info-value">2001 / 09 / 06</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">星座</span>
+        <span class="info-value">♍ 處女座</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">工作</span>
+        <span class="info-value">餐廳服務生</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">職位</span>
+        <span class="info-value">儲備幹部</span>
+      </div>
     </section>
 
     <section>
-      <h2>簡單範例</h2>
-      <p>下面這個按鈕會顯示一段訊息，示範 JavaScript 與網頁互動：</p>
-      <button id="sampleButton">按我看看</button>
+      <h2>技能 / 專長</h2>
+      <div class="skill-item">
+        <div class="skill-header"><span>餐飲服務</span><span>90%</span></div>
+        <div class="bar-bg"><div class="bar-fill" data-width="90"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span>團隊協作</span><span>85%</span></div>
+        <div class="bar-bg"><div class="bar-fill" data-width="85"></div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-header"><span>Java 程式</span><span>30%</span></div>
+        <div class="bar-bg"><div class="bar-fill" data-width="30"></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>興趣 / 喜好</h2>
+      <div class="interest-grid">
+        <div class="interest-item"><span class="icon">💻</span>程式開發</div>
+        <div class="interest-item"><span class="icon">🍽️</span>餐飲文化</div>
+        <div class="interest-item"><span class="icon">🎮</span>遊戲</div>
+        <div class="interest-item"><span class="icon">🏋️</span>健身</div>
+        <div class="interest-item"><span class="icon">🎵</span>音樂</div>
+        <div class="interest-item"><span class="icon">📖</span>自我成長</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>我的經歷</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">起點</div>
+          <div class="tl-title">踏入餐飲業</div>
+          <div class="tl-desc">從基層服務生開始，學習待客之道與現場應變能力。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">累積</div>
+          <div class="tl-title">升任儲備幹部</div>
+          <div class="tl-desc">累積 3 年資歷，進入儲備幹部培訓，朝管理職邁進。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">現在</div>
+          <div class="tl-title">學習 Java 程式開發</div>
+          <div class="tl-desc">利用工作之餘自學程式，希望拓展第二專長。</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>聯絡我</h2>
+      <p style="color:#90a4b7; font-size:0.9rem; margin-bottom:1rem;">有任何合作或問題，歡迎與我聯繫：</p>
+      <button id="sampleButton">顯示聯絡方式</button>
       <p class="small-note" id="message"></p>
     </section>
 
-    <section>
-      <h2>快速指南</h2>
-      <ul>
-        <li>使用 <strong>標題</strong> 來建立內容層次。</li>
-        <li>使用 <strong>段落</strong> 來說明文字內容。</li>
-        <li>使用 <strong>按鈕</strong> 來導引使用者互動。</li>
-      </ul>
-    </section>
   </main>
+
+  <footer>Made with ♥ · 楊柏翔</footer>
 
   <script>
     const button = document.getElementById('sampleButton');
     const message = document.getElementById('message');
-
     button.addEventListener('click', () => {
-      message.textContent = '你好！這是範例按鈕的互動效果。你可以把這段功能擴充成更多頁面效果。';
+      message.textContent = '📧 your@email.com　|　Line: your_line_id';
+    });
+
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
     });
   </script>
 </body>
